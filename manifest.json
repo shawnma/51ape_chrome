@@ -1,0 +1,27 @@
+{
+  "name": "Download ape",
+  "description": "Download ape",
+  "version": "1.1",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": { "128": "icon.png" },
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "browser_action": {
+      "default_title": "Download",
+      "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*.yunpan.cn/*", "http://pan.baidu.com/share/*"],
+      "js": ["auto_download.js"]
+    },
+    {
+      "matches": ["http://51ape.com/ape/*"],
+      "js": ["get_ape_code.js"]
+    }
+  ],
+  "manifest_version": 2
+}
